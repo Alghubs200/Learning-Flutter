@@ -1,0 +1,98 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  // const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final scaffoldKey = GlobalKey<ScaffoldState>();
+
+    return MaterialApp(
+      title: 'Flutter Demo App',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.teal,
+        appBarTheme: AppBarTheme(
+          color: Colors.red,
+          titleTextStyle: TextStyle(
+            color: Colors.orange,
+          ),
+        ),
+      ),
+      darkTheme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+      ),
+      home: Scaffold(
+        key: scaffoldKey,
+        appBar: AppBar(
+          title: Text('Alghubs'),
+        ),
+        // backgroundColor: Colors.green,
+        drawer: SafeArea(
+          child: Drawer(
+            child: ListView(
+              children: List.generate(
+                15,
+                (index) => ListTile(
+                  title: Text('Flutter ${index + 1}'),
+                  subtitle: Text('Lorem ipsum ${index + 1}'),
+                  trailing: Icon(Icons.add),
+                  onTap: () {
+                    scaffoldKey.currentState.openEndDrawer();
+                  },
+                ),
+              ),
+            ),
+          ),
+        ),
+
+        floatingActionButton: FloatingActionButton(
+          child: IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () {
+              print('Hello World');
+            },
+          ),
+        ),
+        body: SafeArea(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              // SizedBox(height:20),
+              Container(
+                height: double.infinity,
+                width: 100,
+                // // margin: EdgeInsets.fromLTRB(145, 50, 72, 55),
+                color: Colors.red,
+                // child: Text('container1'),
+                // padding: EdgeInsets.all(25),
+              ),
+              // SizedBox(width: 70,),
+              Container(
+                height: 100,
+                width: 100,
+                // // margin: EdgeInsets.fromLTRB(145, 50, 72, 55),
+                color: Colors.blue,
+                // child: Text('container2'),
+                // padding: EdgeInsets.all(25),
+              ),
+              Container(
+                height: double.infinity,
+                width: 100,
+                // margin: EdgeInsets.fromLTRB(145, 50, 72, 55),
+                color: Colors.yellow,
+                // child: Text('container3'),
+                // padding: EdgeInsets.all(25),
+
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
