@@ -1,0 +1,17 @@
+body: SafeArea(
+          child: Column(
+            children: <Widget>[
+              CircleAvatar(
+                radius: 50,
+                backgroundImage: AssetImage('images/profile.JPG'),
+              ),
+              Text(
+                'Alghubs',
+                style: TextStyle(
+                    fontSize: 38,
+                    color: Colors.orangeAccent,
+                    fontWeight: FontWeight.bold),
+              )
+            ],
+          ),
+        ),
